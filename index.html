@@ -29,10 +29,10 @@
         }
 
         .logo {
-            width: 72px; /* Встановлюємо розмір лого */
+            width: 72px; 
             height: 72px;
             vertical-align: middle;
-            margin-right: 10px; /* Відстань між логотипом і текстом */
+            margin-right: 10px; 
         }
 
         input {
@@ -74,29 +74,29 @@
     </div>
 
     <script>
-        // Отримуємо елементи з DOM
+        // Elements
         const supplyInput = document.getElementById('supply');
         const priceInput = document.getElementById('price');
         const marketCapOutput = document.getElementById('marketCap');
         const resultOutput = document.getElementById('result');
 
-        // Функція для обчислення маркет капіталізації
+        // functions
         function calculateMarketCap() {
             const supply = parseFloat(supplyInput.value);
             const price = parseFloat(priceInput.value);
 
-            // Перевірка на валідність введених значень
+            // Valid
             if (!isNaN(supply) && !isNaN(price)) {
                 const marketCap = supply * price;
-                marketCapOutput.value = marketCap.toFixed(2); // Відображаємо з 2 знаками після коми
+                marketCapOutput.value = marketCap.toFixed(2); // 
                 resultOutput.textContent = `Market Cap: $${marketCap.toLocaleString()}`;
             } else {
-                marketCapOutput.value = ''; // Якщо значення невірне, очищуємо поле
+                marketCapOutput.value = ''; // 
                 resultOutput.textContent = "Please enter valid numbers.";
             }
         }
 
-        // Додаємо обробники подій для введення даних
+        // Events
         supplyInput.addEventListener('input', calculateMarketCap);
         priceInput.addEventListener('input', calculateMarketCap);
     </script>
