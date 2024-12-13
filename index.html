@@ -1,44 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2299.5">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Market Cap Calculator</title>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;title&gt;Market Cap Calculator&lt;/title&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h1&gt;Market Cap Calculator&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="price"&gt;Price per coin ($):&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="price" step="0.01"&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;label for="supply"&gt;Circulating supply:&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;input type="number" id="supply"&gt;&lt;br&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button type="button" onclick="calculate()"&gt;Calculate&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;p id="result"&gt;&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>function calculate() {</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const price = parseFloat(document.getElementById("price").value);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>const supply = parseFloat(document.getElementById("supply").value);</p>
-<p class="p1"><span class="Apple-converted-space">            </span>if (!isNaN(price) &amp;&amp; !isNaN(supply)) {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>const marketCap = price * supply;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("result").textContent = `Market Cap: $${marketCap.toLocaleString()}`;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">                </span>document.getElementById("result").textContent = "Please enter valid numbers.";</p>
-<p class="p1"><span class="Apple-converted-space">            </span>}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/script&gt;</p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+    <h1>Market Cap Calculator</h1>
+    <label for="price">Price:</label>
+    <input type="number" id="price" placeholder="Enter token price">
+    <label for="supply">Supply:</label>
+    <input type="number" id="supply" placeholder="Enter token supply">
+    <button onclick="calculateMarketCap()">Calculate</button>
+    <p id="result"></p>
+    
+    <script>
+        function calculateMarketCap() {
+            const price = parseFloat(document.getElementById('price').value);
+            const supply = parseFloat(document.getElementById('supply').value);
+            if (!isNaN(price) && !isNaN(supply)) {
+                document.getElementById('result').textContent = 
+                    `Market Cap: $${(price * supply).toLocaleString()}`;
+            } else {
+                document.getElementById('result').textContent = 
+                    "Please enter valid numbers.";
+            }
+        }
+    </script>
 </body>
 </html>
